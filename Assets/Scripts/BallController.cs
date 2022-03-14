@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -58,14 +59,14 @@ public class BallController : MonoBehaviour
         if (col.gameObject.tag == "PlayerScored")
         {
             _playerScore++;
-            printScore();
+            scoreDisplayUpdate();
             resetGame();
         }
         
         if (col.gameObject.tag == "EnemyScored")
         {
             _enemyScore++;
-            printScore();
+            scoreDisplayUpdate();
             resetGame();
         }
     }
@@ -77,11 +78,10 @@ public class BallController : MonoBehaviour
         boost = 1;
     }
 
-    private void printScore()
+    private void scoreDisplayUpdate()
     {
         _playerScoreText.text = _playerScore.ToString();
         _enemyScoreText.text = _enemyScore.ToString();
-        Debug.Log(_enemyScore + " : " + _playerScore);
     }
 
 }
